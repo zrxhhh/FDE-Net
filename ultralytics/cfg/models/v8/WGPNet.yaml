@@ -1,5 +1,4 @@
-# Parameters
-nc: 1  # single class for ship detection
+nc: 1  
 scales:
   n: [0.33, 0.25, 1024]
 
