@@ -1,7 +1,3 @@
-# Ultralytics YOLOv8 with WTConv, CAFM & GSA for Remote Sensing Ship Detection
-# Optimized integration: WTConv in shallow layers, CAFM in backbone, GSA in head
-# Balanced performance and computational efficiency
-
 # Parameters
 nc: 1  # single class for ship detection
 scales:
