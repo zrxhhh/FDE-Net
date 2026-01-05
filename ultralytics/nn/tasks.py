@@ -10,9 +10,9 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 
-from ultralytics.nn.WGPNet import WTB
-from ultralytics.nn.WGPNet import GES
-from ultralytics.nn.WGPNet import PRS
+from ultralytics.nn.FDENet import WDSE
+from ultralytics.nn.FDENet import GCS
+from ultralytics.nn.FDENet import DNR
 
 
 from ultralytics.nn.autobackend import check_class_names

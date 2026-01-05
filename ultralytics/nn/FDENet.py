@@ -148,7 +148,7 @@ class _ScaleModule(nn.Module):
         return torch.mul(self.weight, x)
 
 
-class WTB(nn.Module):
+class WDSE(nn.Module):
     def __init__(self, in_channels, wt_levels=1, wt_type='db1', reduction_ratio=16):
         super().__init__()
         # 处理通道数表达式
@@ -299,7 +299,7 @@ class ECABlock(nn.Module):
         return x * y
 
 
-class full_GES_light(nn.Module):
+class full_GCS_light(nn.Module):
     def __init__(self, embed_dim, num_heads=8, kernel_size=1):
         super().__init__()
         self.num_heads = num_heads
@@ -360,19 +360,19 @@ class full_GES_light(nn.Module):
                     nn.init.constant_(m.bias, 0.0)
 
 
-class GES(nn.Module):
+class GCS(nn.Module):
     def __init__(self, embed_dim=None, num_heads=8):
         super().__init__()
         self.embed_dim = embed_dim
         self.num_heads = num_heads
-        self.ges = None
+        self.gcs = None
 
     def forward(self, x):
-        if self.ges is None:
+        if self.gcs is None:
             c = x.shape[1]
             adjusted_embed_dim = make_divisible(c, self.num_heads)
-            self.ges = full_GES_light(adjusted_embed_dim, self.num_heads).to(x.device)
-        return self.ges(x)
+            self.gcs = full_gcs_light(adjusted_embed_dim, self.num_heads).to(x.device)
+        return self.gcs(x)
 
 
 def make_divisible(x, divisor):
@@ -443,7 +443,7 @@ class ResidualConvBlock(nn.Module):
         return identity + out
 
 
-class PRS(nn.Module):
+class DNR(nn.Module):
     def __init__(self, dim, LayerNorm_type='WithBias'):
         super().__init__()
         self.norm1 = (WithBias_LayerNorm if LayerNorm_type == 'WithBias' else BiasFree_LayerNorm)(dim)

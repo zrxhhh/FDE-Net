@@ -6,22 +6,22 @@ scales:
 backbone:
   # Initial downsampling
   - [-1, 1, Conv, [64, 3, 2]]        # 0-P1/2
-  - [-1, 1, WTB, [16]]            # 1
+  - [-1, 1, WDSE, [16]]            # 1
 
   # Stage 1
   - [-1, 1, Conv, [128, 3, 2]]       # 2-P2/4
   - [-1, 3, C2f, [128, True]]        # 3
-  - [-1, 1, PRS, [32]]              # 4-P3
+  - [-1, 1, DNR, [32]]              # 4-P3
 
   # Stage 2
   - [-1, 1, Conv, [256, 3, 2]]       # 5-P3/8
   - [-1, 6, C2f, [256, True]]        # 6
-  - [-1, 1, PRS, [64]]             # 7-P4
+  - [-1, 1, DNR, [64]]             # 7-P4
 
   # Stage 3
   - [-1, 1, Conv, [512, 3, 2]]       # 8-P4/16
   - [-1, 6, C2f, [512, True]]        # 9
-  - [-1, 1, PRS, [128]]             # 10-P5
+  - [-1, 1, DNR, [128]]             # 10-P5
 
   # Stage 4
   - [-1, 1, Conv, [1024, 3, 2]]      # 11-P5/32
@@ -36,7 +36,7 @@ head:
   - [-1, 3, C2f, [512]]                         # 16
 
   # Strategic GSA placement
-  - [-1, 1, GES, [512, 8]]                     # 17
+  - [-1, 1, GCS, [512, 8]]                     # 17
 
   # P3 upsampling
   - [-1, 1, nn.Upsample, [None, 2, "nearest"]]  # 18
