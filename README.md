@@ -9,15 +9,16 @@ Welcome to use the code from our paper "FDE-Net: A Frequency-Domain Enhanced Net
 ## Dataset
 Levir-Ship, AI-TOD, and HRSC2016.
 
-##  Training and Testing
+## Training and Testing
 ```bash
-yolo detect train model=FDENet.yaml data-- batch-- epochs--
+yolo detect train model=FDENet.yaml data=... batch=... epochs=...
+```
 
-##  Requirements
+## Requirements
 We use a single RTX 3090 24G GPU for training and evaluation.
 
-##  Note
+## Note
 Currently, we provide only preprocessing and training/testing scripts. The full model code will be released upon paper acceptance.
 
-##  Contact
+## Contact
 If you have any questions, don't hesitate to contact me via yena@stu.cqut.edu.cn.
