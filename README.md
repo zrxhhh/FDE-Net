@@ -1,6 +1,6 @@
-# FDE-Net: A Frequency-Domain Enhanced Network for Ship Detection in Remote Sensing Images
+# FSCR-Net: A Frequency–Spatial Collaborative Representation Network for Ship Detection in Remote Sensing Images
 
-Welcome to use the code from our paper "FDE-Net: A Frequency-Domain Enhanced Network for Ship Detection in Remote Sensing Images".
+Welcome to use the code from our paper "FSCR-Net: A Frequency–Spatial Collaborative Representation Network for Ship Detection in Remote Sensing Images".
 
 ## Environment
 - Python 3.9+
@@ -11,7 +11,8 @@ Levir-Ship, AI-TOD, and HRSC2016.
 
 ## Training and Testing
 ```bash
-yolo detect train model=FDENet.yaml data=... batch=... epochs=...
+yolo detect train model=FSCRNet.yaml data=... batch=... epochs=...
+yolo detect val model=best.pt data=... batch=... epochs=...
 ```
 
 ## Requirements
